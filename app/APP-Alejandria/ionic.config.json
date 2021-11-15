@@ -1,0 +1,7 @@
+{
+  "name": "APP-Alejandria",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
