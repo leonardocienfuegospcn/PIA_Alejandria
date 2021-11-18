@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Base de datos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,121 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Base de datos</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <br>
+  <ion-card>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="library-outline" class="icon"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card-header>
+          <ion-card-title>Libros</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col>
+        <ion-button (click) = "libros()">Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="book-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card-header>
+          <ion-card-title>Autores</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col>
+        <ion-button>Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="desktop-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card-header>
+          <ion-card-title>Editoriales</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col>
+        <ion-button>Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card-header>
+          <ion-card-title>Clientes</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col>
+        <ion-button>Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="bag-check-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card-header>
+          <ion-card-title>Renta</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col>
+        <ion-button>Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="construct-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card-header>
+          <ion-card-title>Empleados</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col>
+        <ion-button>Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="earth-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card-header>
+          <ion-card-title>Ubicaciones</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col>
+        <ion-button>Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
 </ion-content>

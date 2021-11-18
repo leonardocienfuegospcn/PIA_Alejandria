@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Log in
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,21 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Log in</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <img src="../../assets/images/Logo.png" id="logo">
+  <br><br><br>
+  <ion-item class="text">
+    <ion-input type="text" placeholder="Usuario" ></ion-input>
+  </ion-item>
+  <ion-item class="text">
+    <ion-input type="password" placeholder="Contraseña" ></ion-input>
+  </ion-item>
+  <ion-item class="button">
+    <ion-button style="margin-right: 5px;">Log in</ion-button>
+    <ion-button>Log out</ion-button>
+  </ion-item>
+
 </ion-content>
