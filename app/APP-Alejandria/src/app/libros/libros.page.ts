@@ -1,5 +1,7 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-libros',
@@ -8,14 +10,65 @@ import { Router } from '@angular/router';
 })
 export class LibrosPage implements OnInit {
 
-  constructor(public router:Router) { }
+  constructor(private router:Router, private service:SharedService ) { }
+
+  listLibros:any=[];
+  ActivateAddEditComp:boolean=false;
+  data:any;
+  titulo:string = "";
+  librosNoFilter:any = []
 
   back(){
     this.router.navigateByUrl('/tabs/tab2');
   }
 
+  refreshlibros(){
+    this.service.getLibros().subscribe(data=>{
+      this.listLibros = data;
+      this.librosNoFilter = data;
+    });
+  }
+
+  addClick(){
+    this.data={
+      isbn: null,
+      titulo: "",
+      genero: "",
+      stock: '',
+      idAutor: '',
+      idEditorial: ''
+    }
+    this.ActivateAddEditComp=true;
+  }
+
+  editClick(item){
+    this.data=item;
+    this.ActivateAddEditComp=true;
+  }
+
+  closeClick(){
+    this.ActivateAddEditComp=false;
+    this.refreshlibros();
+  }
+
+  deleteClick(val:any){
+    this.service.deleteLibro(val).subscribe(res=>{
+      alert(res.toString());
+    });
+    this.refreshlibros();
+  }
+
+  filter(){
+    var filtro = this.titulo;
+    this.listLibros = this.librosNoFilter.filter(function (el){
+      return el.titulo.toString().toLowerCase().includes(
+        filtro.toString().trim().toLowerCase()
+      )
+    });
+  }
 
   ngOnInit() {
+    this.refreshlibros();
   }
 
 }

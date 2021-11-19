@@ -1,0 +1,49 @@
+<ion-row>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label position="floating">ISBN</ion-label>
+        <ion-input [(ngModel)] = "isbn" *ngIf="agregar"></ion-input>
+        <ion-input [(ngModel)] = "isbn" disabled="true" color="primary" *ngIf="editar"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input [(ngModel)] = "titulo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Género</ion-label>
+        <ion-input [(ngModel)] = "genero"></ion-input>
+      </ion-item>
+      <ion-item><ion-label position="floating">Existencia</ion-label>
+        <ion-input [(ngModel)] = "stock"></ion-input>
+      </ion-item>
+      <ion-item><ion-label position="floating">idAutor</ion-label>
+        <ion-input [(ngModel)] = "idAutor"></ion-input>
+      </ion-item>
+      <ion-item><ion-label position="floating">idEditorial</ion-label>
+        <ion-input [(ngModel)] = "idEditorial"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button class="button" (click) = "add()">Añadir</ion-button>
+      <br><br>
+      <ion-button color="warning" class="button" (click) = "edit()">Actualizar</ion-button>
+      <br><br><br>
+      <ion-card class="success" *ngIf="successA">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <h1 class="add">Registro exitoso</h1>
+      </ion-card>
+      <ion-card class="success" *ngIf="successE">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <h1 class="edit">Actualización exitosa</h1>
+      </ion-card>
+      <ion-card class="success" *ngIf="failA">
+        <ion-icon name="warning-outline" class="fail"></ion-icon>
+        <h1 class="add">Error al registrar</h1>
+      </ion-card>
+      <ion-card class="success" *ngIf="failE">
+        <ion-icon name="warning-outline" class="fail"></ion-icon>
+        <h1 class="edit">Error al actualizar</h1>
+      </ion-card>
+    </ion-col>
+</ion-row>
+<br>

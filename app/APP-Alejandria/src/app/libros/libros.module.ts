@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { LibrosPageRoutingModule } from './libros-routing.module';
 
 import { LibrosPage } from './libros.page';
+import { AddModule } from './add/add.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LibrosPageRoutingModule
+    LibrosPageRoutingModule,
+    AddModule
   ],
   declarations: [LibrosPage]
 })

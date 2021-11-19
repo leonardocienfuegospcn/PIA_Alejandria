@@ -8,27 +8,51 @@
 </ion-header>
 
 <ion-content>
+  <ion-row>
+    <ion-col size="1"></ion-col>
+  <ion-col size="10">
+    <br>
+  <ion-button fill="outline" (click) = "addClick()">Añadir libro</ion-button>
+  <ion-button *ngIf="ActivateAddEditComp" (click) = "closeClick()">Cerrar</ion-button>
+  <br>
+  <app-add [data] = "data" *ngIf="ActivateAddEditComp"></app-add>
+  <ion-item>
+    <ion-button (click) = "filter()">Fitrar</ion-button>
+    <ion-label></ion-label>
+    <ion-input placeholder="Título" [(ngModel)]="titulo"></ion-input>
+  </ion-item>
   <br>
   <table>
-    <tr>
-      <th>ISBN</th>
-      <th>Título</th>
-      <th>Género</th>
-      <th>Existencia</th>
-      <th>ID Autor</th>
-      <th>ID Editorial</th>
-      <th> </th>
-      <th> </th>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><ion-button>Editar</ion-button></td>
-      <td><ion-button>Eliminar</ion-button></td>
-    </tr>
+    <thead>
+      <tr>
+        <th>ISBN</th>
+        <th>Título</th>
+        <th>Género</th>
+        <th>Existencia</th>
+        <th>ID Autor</th>
+        <th>ID Editorial</th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libros of listLibros">
+        <td>{{libros.isbn}}</td>
+        <td>{{libros.titulo}}</td>
+        <td>{{libros.genero}}</td>
+        <td>{{libros.stock}}</td>
+        <td>{{libros.idAutor}}</td>
+        <td>{{libros.idEditorial}}</td>
+        <td><ion-button fill="outline" (click) = "editClick(libros)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button></td>
+        <td><ion-button fill="outline" color="danger" (click) = "deleteClick(libros.isbn)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button></td>
+      </tr>
+    </tbody>
   </table>
+  </ion-col>
+  <ion-col size="1"></ion-col>
+  </ion-row>
 </ion-content>
