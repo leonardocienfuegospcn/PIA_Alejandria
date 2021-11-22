@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button class="back" (click) = "back()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="title">Autores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="1"></ion-col>
+  <ion-col size="10">
+    <br>
+  <ion-button fill="outline" (click) = "addClick()">Añadir Autor</ion-button>
+  <ion-button *ngIf="ActivateAddEditComp" (click) = "closeClick()">Cerrar</ion-button>
+  <br>
+  <app-add [data] = "data" *ngIf="ActivateAddEditComp"></app-add>
+  <ion-item>
+    <ion-button (click) = "filter()">Fitrar</ion-button>
+    <ion-label></ion-label>
+    <ion-input placeholder="Nombre del autor" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th>id Autor</th>
+        <th>id Editorial</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let autores of listAutores">
+        <td>{{autores.idAutor}}</td>
+        <td>{{autores.idEditorial}}</td>
+        <td>{{autores.nombre}}</td>
+        <td>{{autores.apellido}}</td>
+        <td><ion-button fill="outline" (click) = "editClick(autores)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button></td>
+        <td><ion-button fill="outline" color="warning" *ngIf="trash" (click)="confirmar=true; trash=false">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" color="danger" *ngIf="confirmar" (click) = "deleteClick(autores.idAutor)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" *ngIf="confirmar" (click)="confirmar=false; trash=true">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+  </ion-col>
+  <ion-col size="1"></ion-col>
+  </ion-row>
+</ion-content>

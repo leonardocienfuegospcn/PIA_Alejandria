@@ -23,18 +23,18 @@
                       <ion-list>
 
                           <ion-item>
-                              <ion-label position="floating">ISBN</ion-label>
-                              <ion-input ngModel name="isbn"></ion-input>
+                              <ion-label position="floating">Id Empleado</ion-label>
+                              <ion-input [(ngModel)]="idEmpleado"></ion-input>
                           </ion-item>
 
                           <ion-item>
-                              <ion-label position="floating">Usuario</ion-label>
-                              <ion-input ngModel name="usuario"></ion-input>
+                              <ion-label position="floating">Correo</ion-label>
+                              <ion-input [(ngModel)]="correo"></ion-input>
                           </ion-item>
 
                           <ion-item>
                               <ion-label position="floating">Contraseña</ion-label>
-                              <ion-input type="email" ngModel name="password"></ion-input>
+                              <ion-input type="password" [(ngModel)]="password"></ion-input>
                           </ion-item>
 
                       </ion-list>
@@ -42,7 +42,7 @@
               </ion-row>
               <ion-row>
                   <ion-col>
-                      <ion-button type="submit" fill="solid" expand="full">
+                      <ion-button type="submit" fill="solid" expand="full" (click)="register()">
                           Register
                       </ion-button>
                   </ion-col>
@@ -50,5 +50,10 @@
           </ion-grid>
       </div>
   </ion-slide>
+  <div *ngIf="false">
+    <div *ngFor="let id of listEmpleados">
+      <p>{{id.idEmpleados}}</p>
+    </div>
+  </div>
 </ion-content>
 

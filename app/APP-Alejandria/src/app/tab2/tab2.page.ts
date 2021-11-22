@@ -13,4 +13,19 @@ export class Tab2Page {
   libros(){
     this.router.navigateByUrl('/libros');
   }
+  autores(){
+    this.router.navigateByUrl('/autores');
+  }
+  clientes(){
+    this.router.navigateByUrl('/clientes')
+  }
+  empleados(){
+    this.router.navigateByUrl('/empleados');
+  }
+  editoriales(){
+    this.router.navigateByUrl('/editoriales');
+  }
+  rentas(){
+    this.router.navigateByUrl('/renta');
+  }
 }

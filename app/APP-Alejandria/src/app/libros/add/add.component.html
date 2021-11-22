@@ -39,10 +39,17 @@
       <ion-card class="success" *ngIf="failA">
         <ion-icon name="warning-outline" class="fail"></ion-icon>
         <h1 class="add">Error al registrar</h1>
+        <br><ul>
+          <li>Revise que el ISBN sea correcto</li>
+          <li>Asegure que el Autor y Editorial esten registrados en el sistema</li>
+        </ul>
       </ion-card>
       <ion-card class="success" *ngIf="failE">
         <ion-icon name="warning-outline" class="fail"></ion-icon>
         <h1 class="edit">Error al actualizar</h1>
+        <br><ul>
+          <li>Asegure que el Autor y Editorial esten registrados en el sistema</li>
+        </ul>
       </ion-card>
     </ion-col>
 </ion-row>

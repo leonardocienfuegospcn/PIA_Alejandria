@@ -1,7 +1,7 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from '../shared.service';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-libros',
@@ -10,13 +10,15 @@ import { SharedService } from '../shared.service';
 })
 export class LibrosPage implements OnInit {
 
-  constructor(private router:Router, private service:SharedService ) { }
+  constructor(private router:Router, private service:SharedService) { }
 
   listLibros:any=[];
   ActivateAddEditComp:boolean=false;
   data:any;
   titulo:string = "";
-  librosNoFilter:any = []
+  libros:any = [];
+  trash: boolean = true;
+  confirmar: boolean = false;
 
   back(){
     this.router.navigateByUrl('/tabs/tab2');
@@ -25,7 +27,7 @@ export class LibrosPage implements OnInit {
   refreshlibros(){
     this.service.getLibros().subscribe(data=>{
       this.listLibros = data;
-      this.librosNoFilter = data;
+      this.libros = data;
     });
   }
 
@@ -34,9 +36,9 @@ export class LibrosPage implements OnInit {
       isbn: null,
       titulo: "",
       genero: "",
-      stock: '',
-      idAutor: '',
-      idEditorial: ''
+      stock: null,
+      idAutor: null,
+      idEditorial: null
     }
     this.ActivateAddEditComp=true;
   }
@@ -54,13 +56,15 @@ export class LibrosPage implements OnInit {
   deleteClick(val:any){
     this.service.deleteLibro(val).subscribe(res=>{
       alert(res.toString());
-    });
     this.refreshlibros();
+    this.trash = true;
+    this.confirmar = false;
+    });
   }
 
   filter(){
     var filtro = this.titulo;
-    this.listLibros = this.librosNoFilter.filter(function (el){
+    this.listLibros = this.libros.filter(function (el){
       return el.titulo.toString().toLowerCase().includes(
         filtro.toString().trim().toLowerCase()
       )

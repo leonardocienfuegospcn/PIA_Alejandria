@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bibliotecaalejandria-770c5": {
+      "hosting": {
+        "app": [
+          "bibliotecaalejandria-770c5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bibliotecaalejandria-770c5"
+  }
+}

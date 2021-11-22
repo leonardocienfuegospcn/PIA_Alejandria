@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -7,9 +8,36 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'libros',
+    path: 'libros', canActivate:[AuthGuard],
     loadChildren: () => import('./libros/libros.module').then( m => m.LibrosPageModule)
+  },
+  {
+    path: 'empleados', canActivate:[AuthGuard],
+    loadChildren: () => import('./empleados/empleados.module').then( m => m.EmpleadosPageModule)
+  },
+  {
+    path: 'clientes', canActivate:[AuthGuard],
+    loadChildren: () => import('./clientes/clientes.module').then( m => m.ClientesPageModule)
+  },
+  {
+    path: 'autores', canActivate:[AuthGuard],
+    loadChildren: () => import('./autores/autores.module').then( m => m.AutoresPageModule)
+  },  {
+    path: 'editoriales',
+    loadChildren: () => import('./editoriales/editoriales.module').then( m => m.EditorialesPageModule)
+  },
+  {
+    path: 'renta',
+    loadChildren: () => import('./renta/renta.module').then( m => m.RentaPageModule)
+  },
+  {
+    path: 'detalles',
+    loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
   }
+
+
+
+
 ];
 @NgModule({
   imports: [

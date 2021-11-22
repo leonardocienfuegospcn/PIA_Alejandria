@@ -46,9 +46,16 @@
         <td><ion-button fill="outline" (click) = "editClick(libros)">
           <ion-icon name="create-outline"></ion-icon>
         </ion-button></td>
-        <td><ion-button fill="outline" color="danger" (click) = "deleteClick(libros.isbn)">
+        <td><ion-button fill="outline" color="warning" *ngIf="trash" (click)="confirmar=true; trash=false">
           <ion-icon name="trash-outline"></ion-icon>
-        </ion-button></td>
+        </ion-button>
+        <ion-button fill="outline" color="danger" *ngIf="confirmar" (click) = "deleteClick(libros.isbn)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" *ngIf="confirmar" (click)="confirmar=false; trash=true">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </td>
       </tr>
     </tbody>
   </table>

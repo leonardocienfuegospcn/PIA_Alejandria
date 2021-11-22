@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button class="back" (click) = "back()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="title">Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="1"></ion-col>
+  <ion-col size="10">
+    <br>
+  <ion-button fill="outline" (click) = "addClick()">Añadir cliente</ion-button>
+  <ion-button *ngIf="ActivateAddEditComp" (click) = "closeClick()">Cerrar</ion-button>
+  <br>
+  <app-add [data] = "data" *ngIf="ActivateAddEditComp"></app-add>
+  <ion-item>
+    <ion-button (click) = "filter()">Fitrar</ion-button>
+    <ion-label></ion-label>
+    <ion-input placeholder="Nombre del cliente" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th>idCliente</th>
+        <th>Nombre</th>
+        <th>apPaterno</th>
+        <th>apMaterno</th>
+        <th>Telefono</th>
+        <th>idEstado</th>
+        <th>idMunicipio</th>
+        <th>Colonia</th>
+        <th>Calle</th>
+        <th>Numero</th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let clientes of listClientes">
+        <td>{{clientes.idCliente}}</td>
+        <td>{{clientes.nombre}}</td>
+        <td>{{clientes.apPaterno}}</td>
+        <td>{{clientes.apMaterno}}</td>
+        <td>{{clientes.telefono}}</td>
+        <td>{{clientes.idEstado}}</td>
+        <td>{{clientes.idMunicipio}}</td>
+        <td>{{clientes.colonia}}</td>
+        <td>{{clientes.calle}}</td>
+        <td>{{clientes.numero}}</td>
+        <td><ion-button fill="outline" (click) = "editClick(clientes)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button></td>
+        <td><ion-button fill="outline" color="warning" *ngIf="trash" (click)="confirmar=true; trash=false">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" color="danger" *ngIf="confirmar" (click) = "deleteClick(clientes.idCliente)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" *ngIf="confirmar" (click)="confirmar=false; trash=true">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+  </ion-col>
+  <ion-col size="1"></ion-col>
+  </ion-row>
+</ion-content>
+

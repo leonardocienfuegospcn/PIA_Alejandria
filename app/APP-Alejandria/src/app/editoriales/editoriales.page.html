@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button class="back" (click) = "back()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="title">Editoriales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="1"></ion-col>
+  <ion-col size="10">
+    <br>
+  <ion-button fill="outline" (click) = "addClick()">Añadir editorial</ion-button>
+  <ion-button *ngIf="ActivateAddEditComp" (click) = "closeClick()">Cerrar</ion-button>
+  <br>
+  <app-add [data] = "data" *ngIf="ActivateAddEditComp"></app-add>
+  <ion-item>
+    <ion-button (click) = "filter()">Fitrar</ion-button>
+    <ion-label></ion-label>
+    <ion-input placeholder="Nombre de la editorial" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th>idEditorial</th>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>idEstado</th>
+        <th>idMunicipio</th>
+        <th>Colonia</th>
+        <th>Calle</th>
+        <th>Numero</th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let editoriales of listEditoriales">
+        <td>{{editoriales.idEditorial}}</td>
+        <td>{{editoriales.nombre}}</td>
+        <td>{{editoriales.telefono}}</td>
+        <td>{{editoriales.idEstado}}</td>
+        <td>{{editoriales.idMunicipio}}</td>
+        <td>{{editoriales.colonia}}</td>
+        <td>{{editoriales.calle}}</td>
+        <td>{{editoriales.numero}}</td>
+        <td><ion-button fill="outline" (click) = "editClick(editoriales)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button></td>
+        <td><ion-button fill="outline" color="warning" *ngIf="trash" (click)="confirmar=true; trash=false">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" color="danger" *ngIf="confirmar" (click) = "deleteClick(editoriales.idEditorial)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" *ngIf="confirmar" (click)="confirmar=false; trash=true">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+  </ion-col>
+  <ion-col size="1"></ion-col>
+  </ion-row>
+</ion-content>
+

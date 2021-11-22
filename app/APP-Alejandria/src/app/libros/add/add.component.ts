@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SharedService } from 'src/app/shared.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-add',
@@ -36,9 +36,15 @@ export class AddComponent implements OnInit {
     this.service.addLibro(val).subscribe(res=>{
       if(res.toString() == "Registrado exitosamente"){
         this.successA = true;
+        this.successE = false;
+        this.failA = false;
+        this.failE = false;
       }
       else{
         this.failA = true;
+        this.failE = false;
+        this.successA = false;
+        this.successE = false;
       }
       alert(res.toString());
     });
@@ -58,9 +64,15 @@ export class AddComponent implements OnInit {
       console.log(res)
       if(res.toString() == "Actualizado exitosamente"){
         this.successE = true;
+        this.successA = false;
+        this.failA = false;
+        this.failE = false;
       }
       else{
         this.failE = true;
+        this.failA = false;
+        this.successA = false;
+        this.successE = false;
       }
       alert(res.toString());
     });
