@@ -48,3 +48,9 @@ values(300,'Harry Potter','Fantasia',1,100,200),
 	  
 insert into clientes
 values(500,'Maria','Ramirez','Solis','8434734',1,3,'Jardines del Cañada','Rio S.Juan',104)
+
+insert into renta
+values(100, 500, 10, '2021-11-22', null, 0, 0)
+
+insert into detallesRenta
+values(100, 300, 2, 40)

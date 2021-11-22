@@ -85,14 +85,4 @@ create table detallesRenta(
 	costo money not null
 )
 
-create table autorizacion(
-	nivelAuth int not null primary key,
-	permisos varchar(20) not null,
-)
 
-create table logIn(
-	idEmpleado int not null foreign key references empleados(idEmpleado),
-	usuario varchar(20) not null,
-	clave varchar(20) not null,
-	nivelAuth int not null foreign key references autorizacion(nivelAuth)
-)
