@@ -127,4 +127,38 @@ export class SharedService {
   deleteEmpleado(data:any){
     return this.http.delete(this.APIurl+'/empleados/' + data)
   }
+
+  //Estados
+  getEstados():Observable<any[]>{
+    return this.http.get<any>(this.APIurl+'/estados')
+  }
+
+  addEstado(data:any){
+    return this.http.post(this.APIurl+'/estados', data)
+  }
+
+  editEstado(data:any){
+    return this.http.put(this.APIurl+'/estados', data)
+  }
+
+  deleteEstado(data:any){
+    return this.http.delete(this.APIurl+'/estados/' + data)
+  }
+
+  //Municipios
+  getMunicipios():Observable<any[]>{
+    return this.http.get<any>(this.APIurl+'/municipios')
+  }
+
+  addMunicipio(data:any){
+    return this.http.post(this.APIurl+'/municipios', data)
+  }
+
+  editMunicipio(data:any){
+    return this.http.put(this.APIurl+'/municipios', data)
+  }
+
+  deleteMunicipio(data:any){
+    return this.http.delete(this.APIurl+'/municipios/' + data)
+  }
 }

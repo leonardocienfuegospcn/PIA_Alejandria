@@ -22,17 +22,22 @@ const routes: Routes = [
   {
     path: 'autores', canActivate:[AuthGuard],
     loadChildren: () => import('./autores/autores.module').then( m => m.AutoresPageModule)
-  },  {
-    path: 'editoriales',
+  },
+  {
+    path: 'editoriales', canActivate:[AuthGuard],
     loadChildren: () => import('./editoriales/editoriales.module').then( m => m.EditorialesPageModule)
   },
   {
-    path: 'renta',
+    path: 'renta', canActivate:[AuthGuard],
     loadChildren: () => import('./renta/renta.module').then( m => m.RentaPageModule)
   },
   {
-    path: 'detalles',
+    path: 'detalles', canActivate:[AuthGuard],
     loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
+  },
+  {
+    path: 'ubicaciones', canActivate:[AuthGuard],
+    loadChildren: () => import('./ubicaciones/ubicaciones.module').then( m => m.UbicacionesPageModule)
   }
 
 

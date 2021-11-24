@@ -166,8 +166,10 @@
     <Compile Include="Controllers\DetallesController.cs" />
     <Compile Include="Controllers\EditorialesController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
+    <Compile Include="Controllers\EstadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibrosController.cs" />
+    <Compile Include="Controllers\MunicipiosController.cs" />
     <Compile Include="Controllers\RentasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,7 +180,9 @@
     <Compile Include="Models\detalles.cs" />
     <Compile Include="Models\editoriales.cs" />
     <Compile Include="Models\empleados.cs" />
+    <Compile Include="Models\estados.cs" />
     <Compile Include="Models\libros.cs" />
+    <Compile Include="Models\municipios.cs" />
     <Compile Include="Models\rentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

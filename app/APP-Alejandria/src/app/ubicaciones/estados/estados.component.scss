@@ -1,0 +1,41 @@
+.button{
+  width: 200px;
+  margin: auto;
+  display: block;
+}
+
+.success{
+  width: 300px;
+  margin: auto;
+  display: block;
+}
+
+ion-icon{
+  margin-top: 3px;
+  margin-left: 7px;
+  font-size: 70pt;
+  color: #55d063;
+  position: static;
+  float: left;
+  padding: 0;
+}
+
+.add{
+  margin-top: 35px;
+  text-align: center;
+}
+
+.edit{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.fail{
+  margin-top: 3px;
+  margin-left: 7px;
+  font-size: 70pt;
+  color: #f04444;
+  position: static;
+  float: left;
+  padding: 0;
+}

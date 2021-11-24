@@ -28,4 +28,7 @@ export class Tab2Page {
   rentas(){
     this.router.navigateByUrl('/renta');
   }
+  ubicaciones(){
+    this.router.navigateByUrl('/ubicaciones');
+  }
 }

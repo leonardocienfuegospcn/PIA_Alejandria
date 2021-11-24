@@ -21,7 +21,7 @@ export class AuthService {
 
   logout(){
     this.isLoged = false;
-    alert("Hasta la proxima!!")
+    alert("Hasta la Próxima!!")
     return this.auth.signOut();
   }
 
