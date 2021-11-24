@@ -201,7 +201,7 @@ create proc editarDetalle
 	as
 		update detallesRenta
 		set idRenta = @idRenta, isbn = @isbn, cantidad = @cantidad, costo = @costo
-		where idRenta = @idRenta
+		where idRenta = @idRenta and isbn = @isbn
 
 create proc eliminarDetalle
 	@idRenta int
